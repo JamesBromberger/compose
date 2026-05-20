@@ -24,8 +24,12 @@
 {{- end }}
 
 {{- $options := (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" "true") -}}
+<<<<<<< HEAD:layouts/_partials/head/index.html
 {{- $styles := resources.Get "sass/main.sass" | resources.ExecuteAsTemplate "main.sass" . |
 css.Sass $options | fingerprint "sha512" }}
+=======
+{{- $styles := resources.Get "sass/main.sass" | resources.ExecuteAsTemplate "main.sass" . | css.Sass $options | resources.Fingerprint "sha512" }}
+>>>>>>> 3f82e1d65e1f74fc9c60a85ee90a8b966e298bb6:layouts/partials/head/index.html
 <link rel="stylesheet" href="{{ $styles.Permalink }}" integrity="{{ $styles.Data.Integrity }}">
 
 {{- $config := site.Params }}
